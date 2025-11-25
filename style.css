@@ -1,0 +1,263 @@
+/* ========================================================================= */
+/* 1. VARIABLES CSS (TEMA CLARO ÚNICO)                                        */
+/* ========================================================================= */
+:root{
+  --accent: #99ffcc; /* Color de acento (verde/cian claro) */
+  
+  /* Variables de tema (Solo Light Mode) */
+  --bg: #ffffff;             /* Fondo principal: Blanco */
+  --bg-panel: #ffffff;       /* Fondo de paneles y tarjetas: Blanco */
+  --bg-card: rgba(255, 255, 255, 0.95); /* Fondo de tarjetas con ligera transparencia */
+  --text: #111;              /* Color de texto principal */
+  --muted: #666;             /* Color de texto secundario/apagado */
+  --glass-bg: rgba(255, 255, 255, 0.9); /* Fondo del Navbar (glass effect) */
+  --border-color: rgba(0, 0, 0, 0.1); /* Color del borde (muy sutil) */
+  --shadow-color: rgba(0, 0, 0, 0.12); /* Color de sombra */
+  --nav-height: 64px; /* Altura del Navbar */
+}
+
+
+/* ========================================================================= */
+/* 2. RESET Y BASE                                                          */
+/* ========================================================================= */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+
+/* ========================================================================= */
+/* 3. NAVBAR                                                                */
+/* ========================================================================= */
+.nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  height:var(--nav-height);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:0 18px;
+  z-index:1000;
+  backdrop-filter: blur(8px); 
+  -webkit-backdrop-filter: blur(8px);
+  background: var(--glass-bg); 
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Brand */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color:var(--text);
+}
+.brand-img{
+  width:auto;
+  height:40px; 
+  object-fit:contain;
+}
+.brand-text{ font-weight:600; font-size:1rem; }
+
+/* Menu btn (hamburger) */
+.menu-btn{
+  font-size:20px;
+  background:transparent;border:0;padding:6px 8px;cursor:pointer;
+  color: var(--text);
+}
+
+/* Nav links (desktop) */
+.nav-links{
+  margin-left:20px; display:flex; gap:18px; align-items:center; margin-right:auto;
+}
+.nav-links a{ text-decoration:none; color:var(--muted); font-weight:500; font-size:0.95rem; }
+.nav-links a.login{ 
+  border:1px solid var(--border-color); 
+  padding:6px 10px; 
+  border-radius:16px; 
+  color:var(--text); 
+  background:rgba(128, 128, 128, 0.1);
+}
+
+/* User icon */
+.user{ margin-left:auto; font-size:20px; }
+
+
+/* ========================================================================= */
+/* 4. PANEL LATERAL (Side Panel) - EVITA INTERFERENCIA CON NAVBAR           */
+/* ========================================================================= */
+.side-panel{
+  position:fixed; 
+  left:-320px; 
+
+  /* Ahora el panel inicia justo debajo del navbar */
+  top: var(--nav-height);
+  height: calc(100% - var(--nav-height));
+
+  width:320px; 
+  z-index:1100;
+
+  background: linear-gradient(
+    to bottom, 
+    var(--bg-panel) 0%, 
+    var(--bg-panel) 75%, 
+    var(--accent) 100%
+  );
+
+  box-shadow: 4px 0 18px var(--shadow-color);
+  
+  /* Se eliminó padding-top (ya no es necesario) */
+  transition: left 300ms ease, transform 300ms ease;
+  display: flex;
+  flex-direction: column; 
+  transform: translateX(0);
+}
+.side-panel.open{ left:0; }
+
+/* Botón de cierre dentro del panel */
+.side-panel .close-btn{
+  margin: 12px;
+  align-self: flex-end;
+  background: transparent;
+  border: 0;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+/* Mantener la lista ajustada al nuevo alto */
+.side-panel ul{ 
+  list-style:none; 
+  padding:12px 24px 24px 24px; 
+  margin:0; 
+  flex-grow: 1; 
+}
+.side-panel li{ padding:12px 0; font-size:1.05rem; }
+.side-panel a{text-decoration:none;color:var(--text)}
+
+
+/* ========================================================================= */
+/* 5. HERO SECTION & ANIMATIONS                                             */
+/* ========================================================================= */
+main{ padding-top: calc(var(--nav-height) + 18px); }
+
+/* Hero Grid */
+.hero{
+  display:grid;
+  grid-template-columns: 1fr minmax(320px,42%);
+  gap:36px;
+  align-items:center;
+  padding:48px 64px;
+  min-height: calc(100vh - var(--nav-height) - 18px); 
+}
+
+/* Left block */
+.hero-logo-container { margin-bottom: 20px; }
+.hero-logo-img { max-width: 350px; height: auto; }
+.hero-left .accent{ color:var(--accent); }
+.tagline h2{ font-size:28px; margin:8px 0 18px 0; font-weight:600; }
+.typing{ font-family: "Courier New", monospace; color:var(--text); }
+
+/* Cursor parpadeante */
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 28px; 
+  background: var(--text);
+  animation: blink 1s infinite;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Info card */
+.info-card{ 
+  background: var(--bg-card);
+  padding:14px; 
+  border-radius:8px; 
+  box-shadow:0 6px 18px var(--shadow-color); 
+  max-width:300px; 
+  border: 1px solid var(--border-color);
+  min-height: 80px; 
+  display: flex;
+  align-items: center;
+  transition: opacity 0.2s ease-in-out; 
+}
+
+/* Carousel */
+.hero-right{ display:flex; justify-content:center; align-items:center; }
+.carousel{
+  width:100%;
+  max-width:720px;
+  height:260px;
+  border:1px solid var(--border-color);
+  border-radius:8px;
+  overflow:hidden;
+  position:relative;
+  background: var(--bg-panel);
+}
+.carousel img{ 
+  width:100%; 
+  height:100%; 
+  object-fit:contain; 
+  display:block; 
+  transition: opacity 0.3s ease-in-out;
+}
+.carousel-controls { display: none; } /* Controles eliminados */
+
+
+/* ========================================================================= */
+/* 6. SECCIONES ADICIONALES                                                 */
+/* ========================================================================= */
+
+/* Video CTA */
+.video-cta{ position:relative; height:420px; margin-top:36px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.video-cta video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; filter:brightness(0.6) contrast(1.02) }
+.video-overlay{ position:relative; z-index:2; text-align:center; color:#fff; padding:24px; max-width:900px; }
+.video-overlay h2{ font-size:32px; margin-bottom:8px }
+
+/* Botones CTA */
+.cta-buttons{ display:flex; gap:12px; justify-content:center; margin-top:16px }
+.btn{ padding:12px 20px; border-radius:8px; border:0; cursor:pointer; font-weight:600 }
+.btn.primary{ background:var(--accent); color:#000; } 
+.btn.outline{ background:transparent; border:2px solid rgba(255,255,255,0.6); color:#fff }
+
+/* Placeholder sections */
+.section{ padding:64px 64px; background:transparent; }
+
+/* Footer */
+.site-footer{ 
+  background: var(--bg-panel); 
+  padding:32px 64px; 
+  margin-top:32px;
+  border-top: 1px solid var(--border-color);
+}
+.footer-inner{ display:flex; gap:28px; justify-content:space-between; }
+
+
+/* ========================================================================= */
+/* 7. RESPONSIVE DESIGN                                                     */
+/* ========================================================================= */
+@media (max-width:1000px){
+  .hero{ grid-template-columns:1fr; padding:28px 20px; min-height: 0; }
+  .nav-links{ display:none; }
+  .carousel{ height:220px; }
+}
+@media (max-width:600px){
+  .nav{ padding:0 12px }
+  .brand-img{ height:34px }
+  .hero-logo-img { max-width: 250px; }
+  .tagline h2 { font-size: 24px; }
+  .typing-cursor { height: 24px; }
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Delivery In-Transit — Landing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <button id="menuBtn" class="menu-btn" aria-label="Abrir menú">☰</button>
+
+    <a href="#home" class="brand">
+      <img src="Delivery_In-Transit.png" alt="Logo" class="brand-img">
+    </a>
+
+    <nav class="nav-links">
+      <a href="#conocenos">Conócenos</a>
+      <a href="#suscripcion">Suscripción</a>
+      <a href="#soporte">Soporte</a>
+      <a href="#login" class="login">Iniciar sesión</a>
+    </nav>
+
+    <div class="user">👤</div>
+  </header>
+
+  <aside class="side-logo">
+    <img src="xd.png" alt="Logo lateral" />
+  </aside>
+
+  <div id="sidePanel" class="side-panel" aria-hidden="true" role="dialog" aria-label="Menú lateral">
+    <!-- Botón para cerrar el panel (accesible) -->
+    <button id="sideCloseBtn" class="close-btn" aria-label="Cerrar menú">✕</button>
+
+    <ul>
+      <li><a href="#conocenos">Conócenos</a></li>
+      <li><a href="#suscripcion">Suscripción</a></li>
+      <li><a href="#soporte">Soporte</a></li>
+      <li><a href="#login">Iniciar sesión</a></li>
+    </ul>
+  </div>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-left">
+        
+        <div class="hero-logo-container">
+          <img src="/mnt/data/78c1bb7c-ed57-4707-98b5-7cac52056800.png" alt="Delivery In-Transit Logo" class="hero-logo-img">
+        </div>
+
+        <div class="tagline">
+          <h2>Gestión de<span id="typing" class="typing"></span><span class="typing-cursor"></span></h2>
+        </div>
+
+        <div class="hero-info">
+          <div id="infoCard" class="info-card">
+            <p id="infoCardText">Encuentra el camino más rápido para tu flota. Reducimos el consumo de combustible y aumentamos la eficiencia de cada repartidor.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="carousel" id="carousel">
+          <img id="carouselImg" src="https://via.placeholder.com/640x320?text=Imagen+1" alt="Carrusel">
+          </div>
+      </aside>
+    </section>
+
+    <section id="video-cta" class="video-cta">
+      <video autoplay muted loop playsinline id="bgVideo">
+        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+        </video>
+
+      <div class="video-overlay">
+        <h2>Potencia tu gestión de repartidores</h2>
+        <p class="placeholder">Texto sobre el video, reemplázalo por tu mensaje comercial.</p>
+        <div class="cta-buttons">
+          <button class="btn primary">Comprar licencia</button>
+          <button class="btn outline">Unirse a negocio</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="conocenos" class="section"> <h3>Conócenos</h3> <p class="placeholder">Contenido...</p> </section>
+    <section id="suscripcion" class="section"> <h3>Suscripción</h3> <p class="placeholder">Contenido...</p> </section>
+    <section id="soporte" class="section"> <h3>Soporte</h3> <p class="placeholder">Contenido...</p> </section>
+    <section id="login" class="section"> <h3>Iniciar sesión</h3> <p class="placeholder">Contenido...</p> </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="contact">
+        <h4>Contacto</h4>
+        <p>Email: contacto@tuempresa.com</p>
+      </div>
+      <div class="extras">
+        <h4>Extras</h4>
+        <p>Enlaces y redes sociales</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
