@@ -37,12 +37,12 @@ document.addEventListener('keydown', (e) => {
 /* ------------------ 2. Carrusel (6 imágenes) ------------------ */
 const carouselImg = document.getElementById('carouselImg');
 const images = [
-  'https://via.placeholder.com/800x400?text=Imagen+Rutas', 
-  'https://via.placeholder.com/800x400?text=Imagen+Asignación', 
-  'https://via.placeholder.com/800x400?text=Imagen+Seguimiento', 
-  'https://via.placeholder.com/800x400?text=Imagen+Reportes', 
-  'https://via.placeholder.com/800x400?text=Imagen+Control', 
-  'https://via.placeholder.com/800x400?text=Imagen+API' 
+  'Rutas.png', 
+  'Asignacion.png', 
+  'Seguimiento.png', 
+  'Reportes.png', 
+  'Control.png', 
+  'API.png' 
 ];
 let cIndex = 0; 
 

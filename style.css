@@ -161,7 +161,7 @@ main{ padding-top: calc(var(--nav-height) + 18px); }
 
 /* Left block */
 .hero-logo-container { margin-bottom: 20px; }
-.hero-logo-img { max-width: 350px; height: auto; }
+.hero-logo-img { max-width: 1000px; height: auto; }
 .hero-left .accent{ color:var(--accent); }
 .tagline h2{ font-size:28px; margin:8px 0 18px 0; font-weight:600; }
 .typing{ font-family: "Courier New", monospace; color:var(--text); }
