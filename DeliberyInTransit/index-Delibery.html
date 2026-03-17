@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policode Labs | Transformando ideas en soluciones</title>
+    <link rel="stylesheet" href="style-Delibery-2.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="https://figma-alpha.s3.us-west-2.amazonaws.com/
+                images/a14daeaa-34f7-6eba-cd94-753ecf154e5f" alt="Policode Labs">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio" class="active">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button class="btn-primary">Contáctanos</button>
+            <div class="mobile-toggle" id="mobile-toggle">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header id="inicio" class="hero">
+        <div class="floating-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+        </div>
+        <div class="container hero-content reveal">
+            <div class="badge">
+                <i data-lucide="sparkles"></i> Transformando ideas en 
+                soluciones
+            </div>
+            <h1>Creamos Soluciones <br> <span class="gradient-text" 
+                id="typewriter"></span><span class="cursor">|</span></h1>
+            <p>En <strong>Policode Labs</strong> construimos productos 
+                digitales que marcan la diferencia. Desde apps web 
+                hasta sistemas empresariales.</p>
+            <div class="hero-btns">
+                <button class="btn-primary">Iniciar Proyecto 
+                    <i data-lucide="arrow-right"></i></button>
+                <button class="btn-outline">Ver Proyectos</button>
+            </div>
+        </div>
+    </header>
+
+    <section id="servicios" class="container reveal">
+        <div class="section-header">
+            <span class="subtitle">Nuestros Servicios</span>
+            <h2>Todo lo que necesitas para <span class="gradient-text">
+                crecer digitalmente</span></h2>
+        </div>
+        <div class="grid-3">
+            <div class="card service-card">
+                <div class="icon-box bg-teal-soft"><i data-lucide="globe"
+                     class="text-teal"></i></div>
+                <h3>Desarrollo Web</h3>
+                <p>Aplicaciones modernas y de alto rendimiento con React,
+                     Next.js y Node.js.</p>
+            </div>
+            <div class="card service-card">
+                <div class="icon-box bg-gold-soft">
+                    <i data-lucide="smartphone" class="text-gold"></i></div>
+                <h3>Apps Móviles</h3>
+                <p>Experiencias excepcionales en iOS y Android
+                     con React Native y Flutter.</p>
+            </div>
+            <div class="card service-card">
+                <div class="icon-box bg-teal-soft">
+                    <i data-lucide="cloud" class="text-teal"></i></div>
+                <h3>Soluciones Cloud</h3>
+                <p>Infraestructura escalable y segura en AWS, 
+                    Azure y GCP.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="bg-light">
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="subtitle">Nuestros Proyectos</span>
+                <h2>Proyectos que <span class="gradient-text">
+                    hablan por sí solos</span></h2>
+            </div>
+            <div class="project-list">
+                <div class="project-item card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-
+                        1760531941882-433a8a7c5fd4?q=80&w=1080" alt="Logística">
+                    </div>
+                    <div class="project-info">
+                        <span class="tag">Logística</span>
+                        <h3>DeliberyIn_Transit</h3>
+                        <p>Plataforma integral de seguimiento de entregas en 
+                            tiempo real con dashboards interactivos.</p>
+                        <div class="tech-tags">
+                            <span>React Native</span><span>Node.js</span>
+                            <span>Firebase</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="container reveal">
+        <div class="grid-2">
+            <div class="contact-info">
+                <span class="subtitle">Contacto</span>
+                <h2>¿Listo para transformar tu idea?</h2>
+                <div class="contact-item">
+                    <i data-lucide="mail"></i>
+                    <div>
+                        <label>Email</label>
+                        <p>hola@policodelabs.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i data-lucide="phone"></i>
+                    <div>
+                        <label>Teléfono</label>
+                        <p>+1 (555) 000-1234</p>
+                    </div>
+                </div>
+            </div>
+            <form id="contact-form" class="card">
+                <div class="form-group">
+                    <input type="text" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Cuéntanos sobre 
+                    tu proyecto..." rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary w-full">
+                    Enviar Solicitud <i data-lucide="send"></i></button>
+            </form>
+        </div>
+    </section>
+
+    <script src="script-Delibery.js"></script>
+</body>
+</html>
