@@ -1,0 +1,174 @@
+/* =========================================
+   1. VARIABLES GLOBALES (Colores y Efectos)
+   ========================================= */
+:root {
+  --color-primary: #00d278;
+  --color-primary-dark: #00b868;
+  --color-bg-dark: #0a0f1a;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================
+   2. ESTILOS BASE Y FONDOS
+   ========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; background-color: var(--color-bg-dark); }
+
+.font-heading { font-family: 'Outfit', sans-serif; }
+.font-body { font-family: 'DM Sans', sans-serif; }
+
+.gradient-bg {
+  background: linear-gradient(135deg, var(--color-bg-dark) 0%, #0d1a2d 30%, #0f1f35 60%, var(--color-bg-dark) 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(0, 210, 120, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 210, 120, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* =========================================
+   3. DEFINICIÓN DE ANIMACIONES (Keyframes)
+   ========================================= */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes float-delay {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.6; }
+  50% { transform: scale(1.1); opacity: 0.2; }
+  100% { transform: scale(0.8); opacity: 0.6; }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-left {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* =========================================
+   4. CLASES DE ANIMACIÓN Y EFECTOS
+   ========================================= */
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-float-delay { animation: float-delay 5s ease-in-out infinite 0.5s; }
+.animate-pulse-ring { animation: pulse-ring 3s ease-in-out infinite; }
+.animate-slide-up { animation: slide-up 0.8s ease-out forwards; }
+.animate-slide-left { animation: slide-left 0.8s ease-out forwards; }
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+.glow-green {
+  box-shadow: 0 0 30px rgba(0, 210, 120, 0.15), 0 0 60px rgba(0, 210, 120, 0.05);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary), #00e89d, #7affc8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* =========================================
+   5. BOTONES Y TARJETAS
+   ========================================= */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 210, 120, 0.35);
+}
+
+.btn-outline {
+  border: 2px solid rgba(0, 210, 120, 0.4);
+  transition: all 0.3s ease;
+}
+.btn-outline:hover {
+  background: rgba(0, 210, 120, 0.1);
+  border-color: rgba(0, 210, 120, 0.7);
+  transform: translateY(-2px);
+}
+
+.feature-card {
+  transition: all 0.4s ease;
+}
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 210, 120, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.stat-number {
+  background: linear-gradient(180deg, #ffffff, #a0a0a0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* =========================================
+   6. NAVEGACIÓN Y SCROLL
+   ========================================= */
+.scroll-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s ease-out;
+}
+.scroll-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after { width: 100%; }
+
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+.mobile-menu.open {
+  max-height: 400px;
+  opacity: 1;
+}
