@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel - Delivery In-Transit</title>
+  <link rel="icon" type="image/png" href="logo-delibery-blanco.png">
+  <link rel="stylesheet" href="DeliberyInTransit-CanNINA-style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+ </head>
+ <body>
+  <div id="app-wrapper" class="gradient-bg grid-pattern w-full h-full overflow-auto font-body text-gray-300">
+   
+   <div class="orb" style="width: 400px; height: 400px; background: #0077ff; top: -100px; left: -100px;"></div>
+   <div class="orb" style="width: 300px; height: 300px; background: #00d278; bottom: -50px; right: -50px;"></div>
+   
+   <nav class="fixed top-0 left-0 w-full z-50" style="background: rgba(10, 15, 26, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.06);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex items-center justify-between h-16">
+      <div class="flex items-center gap-3">
+       <div class="w-9 h-9 rounded-lg flex items-center justify-center overflow-hidden" style="background: linear-gradient(135deg, #40E0D0, #FFFDD0);">
+        <img src="logo-delibery-negro.png" alt="Logo" style="width: 80%; height: 80%; object-fit: contain;">
+       </div>
+       <span class="font-heading font-bold text-white text-lg">Mi Panel</span>
+      </div>
+      <div>
+       <span id="user-email-display" class="text-sm text-gray-400 mr-4 hidden sm:inline-block">Cargando usuario...</span>
+       <button id="btn-logout" class="btn-outline px-4 py-2 rounded-lg text-sm font-medium" style="color: #ff6b6b; border-color: rgba(255, 107, 107, 0.4);">Cerrar Sesión</button>
+      </div>
+     </div>
+    </div>
+   </nav>
+   
+   <section class="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h1 class="font-heading font-900 text-3xl sm:text-4xl text-white mb-4">Bienvenido al Sistema</h1>
+        <p class="text-gray-400">Actualmente no cuentas con una licencia activa. Selecciona un plan para activar tu entorno de trabajo.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 text-left mt-8">
+        
+        <div class="glass-card rounded-2xl p-8 relative overflow-hidden flex flex-col">
+         <div class="absolute top-0 left-0 w-full h-1" style="background: linear-gradient(90deg, #00d278, transparent);"></div>
+         <div class="mb-4">
+          <h3 class="font-heading font-700 text-xl text-white">Licencia de Prueba</h3>
+          <p class="text-sm text-gray-400 mt-2 min-h-[3rem]">Ideal para conocer el sistema sin riesgo.</p>
+         </div>
+         <div class="mb-6"><span class="font-heading font-800 text-4xl text-white">Gratis</span></div>
+         <ul class="space-y-4 mb-6 flex-1">
+          <li class="flex items-start gap-3 text-sm text-gray-300"><i data-lucide="clock" style="width: 18px; height: 18px; color: #00d278;"></i><span>60 días de acceso total.</span></li>
+          <li class="flex items-start gap-3 text-sm text-gray-300"><i data-lucide="truck" style="width: 18px; height: 18px; color: #00d278;"></i><span>Hasta 2 repartidores.</span></li>
+         </ul>
+         <button class="btn-outline w-full py-3 rounded-xl font-heading font-bold" style="color: #00d278;" onclick="activarPrueba()">Activar Prueba</button>
+        </div>
+  
+        <div class="glass-card rounded-2xl p-8 relative overflow-hidden flex flex-col" style="border-color: rgba(0, 120, 255, 0.3); box-shadow: 0 0 30px rgba(0, 120, 255, 0.05);">
+         <div class="absolute top-0 left-0 w-full h-1" style="background: linear-gradient(90deg, #0077ff, transparent);"></div>
+         <div class="mb-4">
+          <h3 class="font-heading font-700 text-xl text-white">Pequeños Negocios</h3>
+          <p class="text-sm text-gray-400 mt-2 min-h-[3rem]">Para empresas locales en crecimiento.</p>
+         </div>
+         <div class="mb-6"><span class="font-heading font-800 text-4xl text-white">$2,500</span><span class="text-sm text-gray-500"> MXN / 6 Meses</span></div>
+         <ul class="space-y-4 mb-6 flex-1">
+          <li class="flex items-start gap-3 text-sm text-gray-300"><i data-lucide="truck" style="width: 18px; height: 18px; color: #0077ff;"></i><span>Hasta 2 repartidores en campo.</span></li>
+          <li class="flex items-start gap-3 text-sm text-gray-300"><i data-lucide="users" style="width: 18px; height: 18px; color: #0077ff;"></i><span>4 miembros de personal.</span></li>
+         </ul>
+         <button class="btn-primary w-full py-3 rounded-xl font-heading font-bold" style="background: linear-gradient(135deg, #0077ff, #0055cc); color: white;" onclick="pagarMercadoPago('PEQUENO')">Pagar con MercadoPago</button>
+        </div>
+  
+        <div class="glass-card rounded-2xl p-8 relative overflow-hidden flex flex-col" style="border-color: rgba(156, 100, 255, 0.3); box-shadow: 0 0 30px rgba(156, 100, 255, 0.05);">
+         <div class="absolute top-0 left-0 w-full h-1" style="background: linear-gradient(90deg, #9c64ff, transparent);"></div>
+         <div class="mb-4">
+          <h3 class="font-heading font-700 text-xl text-white">Gran Negocio</h3>
+          <p class="text-sm text-gray-400 mt-2 min-h-[3rem]">La solución robusta con máximo control.</p>
+         </div>
+         <div class="mb-6"><span class="font-heading font-800 text-4xl text-white">$7,500</span><span class="text-sm text-gray-500"> MXN / 6 Meses</span></div>
+         <ul class="space-y-4 mb-6 flex-1">
+          <li class="flex items-start gap-3 text-sm text-gray-300"><i data-lucide="truck" style="width: 18px; height: 18px; color: #9c64ff;"></i><span>Hasta 10 repartidores en campo.</span></li>
+          <li class="flex items-start gap-3 text-sm text-gray-300"><i data-lucide="palette" style="width: 18px; height: 18px; color: #9c64ff;"></i><span>Personalización de marca (Marca Blanca).</span></li>
+         </ul>
+         <button class="btn-primary w-full py-3 rounded-xl font-heading font-bold" style="background: linear-gradient(135deg, #9c64ff, #7a3bff); color: white;" onclick="pagarMercadoPago('GRANDE')">Pagar con MercadoPago</button>
+        </div>
+       </div>
+
+    </div>
+   </section>
+  </div>
+  
+  <script>
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+    
+    // Recuperar el correo guardado al iniciar sesión
+    const userEmail = localStorage.getItem("userEmail");
+    if(userEmail) {
+        document.getElementById("user-email-display").textContent = "Sesión: " + userEmail;
+    }
+
+    document.getElementById('btn-logout').addEventListener('click', () => {
+        localStorage.removeItem("userEmail");
+        window.location.href = "index.html"; // Regresa al inicio
+    });
+
+    function activarPrueba() {
+        alert("Enlazando con el backend para activar los 60 días...");
+    }
+
+    function pagarMercadoPago(tipo) {
+        alert("Iniciando conexión con Mercado Pago para el paquete: " + tipo);
+    }
+  </script>
+ </body>
+</html>

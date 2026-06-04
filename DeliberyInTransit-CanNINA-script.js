@@ -159,6 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Petición al Backend: LOGIN
+ // Petición al Backend: LOGIN
   loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = document.getElementById('loginEmail').value;
@@ -175,15 +176,21 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await response.text();
       
       if (response.ok) {
-        showAuthMessage(loginMessage, "Acceso concedido. Cargando panel...", true);
-        // Aquí conectaremos la redirección al panel de control en el futuro
+        showAuthMessage(loginMessage, "Acceso concedido. Redirigiendo...", true);
+        // Guardamos el correo en el navegador para mostrarlo en el panel
+        localStorage.setItem("userEmail", email);
+        // Redirigimos a la nueva pantalla
+        setTimeout(() => {
+            window.location.href = "panel.html"; 
+        }, 1000);
       } else if (response.status === 403) {
-        showAuthMessage(loginMessage, data, false); // Aviso de licencia expirada
+        showAuthMessage(loginMessage, data, false); 
       } else {
-        showAuthMessage(loginMessage, data, false); // Credenciales inválidas
+        showAuthMessage(loginMessage, data, false); 
       }
     } catch (error) {
-      showAuthMessage(loginMessage, "Error al conectar con el servidor.", false);
+      // Si entra aquí, puede ser un error de CORS
+      showAuthMessage(loginMessage, "Error de conexión. Revisa la consola (F12).", false);
     }
   });
 
